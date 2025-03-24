@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula01</title>
+</head>
+<body>
+    <h1>Aula01 - Sistemas Distribuídos</h1>
+
+    <div id="minhaDiv">
+        Olá Pessoal!
+    </div>
+    <button onclick="darBomDia()">Dar bom dia</button>
+
+    <hr>
+    <input type="text" id="txtValor" />
+    <button onclick="gerar()">Gerar</button>
+    <div id="divValores">
+
+    </div>
+
+    <script>
+
+        function gerar(){
+            valor = document.getElementById("txtValor").value;
+            if( isNaN(valor) ){
+                alert("O valor precisar ser um número!");
+            }else{
+                var texto = "";
+                for(i = 1; i <= valor; i++){
+                    texto += i + " <br>";
+                }
+                document.getElementById("divValores").innerHTML = texto;
+            }
+        }
+
+        var cont = 1;
+        function darBomDia(){
+            var minhaDiv = document.getElementById("minhaDiv");
+            minhaDiv.innerHTML = "Bom dia <u>Pessoal</u>";
+            console.log("O botão darBomDia foi clicado "+cont+ " vezes");
+            cont ++;
+        }
+    </script>
+
+
+</body>
+</html>

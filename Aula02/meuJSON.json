@@ -1,0 +1,14 @@
+{
+    "nome" : "Maria" ,
+    "idade" : 25 ,
+    "altura" : 1.75 ,
+    "anoFormacao" : [ 2006 , 2013 , 2017 ] ,
+    "formacao" : [ "Técnico" , "Graduação" , "Mestrado" ] ,
+    "casado" : true ,
+    "conjuge" : { "nome" : "José" , "idade" : 26 } ,
+    "filhos" : [
+        { "nome" : "Júlia" , "idade" : 5 } ,
+        { "nome" : "Pedro" , "idade" : 3 }
+    ] ,
+    "endereco" : null 
+}
