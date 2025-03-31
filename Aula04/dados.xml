@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pessoa>
+    <nome>Maria</nome>
+    <idade>25</idade>
+    <formacoes>
+        <formacao>Técnico</formacao>
+        <formacao>Graduação</formacao>
+        <formacao>Mestrado</formacao>
+    </formacoes>
+    <casado>true</casado>
+    <conjuge>
+        <nome>José</nome>
+        <idade>26</idade>
+    </conjuge>
+    <filhos>
+        <filho>
+            <nome>Júlia</nome>
+            <idade>5</idade>
+        </filho>
+        <filho>
+            <nome>Pedro</nome>
+            <idade>3</idade>
+        </filho>
+    </filhos>
+    <endereco></enderoco>
+</pessoa>

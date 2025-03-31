@@ -59,3 +59,31 @@ if( isset(  $_REQUEST["inserir"] ) ){
         echo ' { "resposta" : "O campo Nome é obrigatório" } ';
     }
 }
+
+
+
+if( isset(  $_REQUEST["excluir"] ) ){
+
+    $id = $_GET["idProduto"];
+
+    if( $id != "" ){
+        try{
+            $conn = mysqli_connect( $local , $user , $senha , $banco );
+            if( $conn ){
+                
+                $sql = "DELETE FROM produto WHERE id = $id";
+
+                mysqli_query( $conn , $sql  );
+                
+                echo ' { "resposta" : "Produto excluido com sucesso!" } ';
+
+            }else{
+                echo ' { "resposta" : "Erro ao conectar com o banco de dados!" } ';
+            }
+        }catch( \Throwable $th ){
+            echo ' { "resposta" : "Erro no servidor!" } ';
+        }
+    }else{
+        echo ' { "resposta" : "É necessário informar o ID do produto" } ';
+    }
+}

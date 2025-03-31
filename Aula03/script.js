@@ -11,6 +11,7 @@ function buscarProdutos(){
                 txt +=  '       <th>ID</th>';
                 txt +=  '       <th>Nome</th>';
                 txt +=  '       <th>Preço</th>';
+                txt +=  '       <th>Excluir</th>';
                 txt +=  '    </tr>';
 
                 var produtos = objJSON.produtos;
@@ -19,6 +20,7 @@ function buscarProdutos(){
                     txt += '    <td>' + prod.id + '</td>';
                     txt += '    <td>' + prod.nome + '</td>';
                     txt += '    <td>' + prod.preco + '</td>';
+                    txt += '    <td> <button onclick="remover( ' + prod.id + ' )" > X </button> </td>';
                     txt += '</tr>';
                 });
                 txt += '</table>';
@@ -59,4 +61,25 @@ function adicionar(){
     preco = document.getElementById("txtPreco").value;
 
     req.send("name=" + nome + "&price=" + preco);
+}
+
+function remover( id ){
+    var req = new XMLHttpRequest();
+    req.onreadystatechange = function(){
+        if( this.readyState == 4 && this.status == 200 ){
+            objJSON = JSON.parse( this.responseText );
+            if( objJSON.resposta  ){
+                 alert( objJSON.resposta );
+            }
+
+            buscarProdutos();
+
+        }else if(this.readyState == 4){
+            alert( this.status + " - " + this.responseText );
+        }
+    };
+    
+    req.open("GET" , "servidor.php?excluir&idProduto=" + id, true );
+
+    req.send();
 }
