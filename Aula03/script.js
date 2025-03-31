@@ -32,3 +32,31 @@ function buscarProdutos(){
     req.open("GET" , "servidor.php?consultar", true );
     req.send();
 }
+
+function adicionar(){
+    var req = new XMLHttpRequest();
+    req.onreadystatechange = function(){
+        if( this.readyState == 4 && this.status == 200 ){
+            objJSON = JSON.parse( this.responseText );
+            if( objJSON.resposta  ){
+                alert( objJSON.resposta );
+            }else{
+               
+                alert( 'ID: ' + objJSON.id );
+                buscarProdutos();
+
+            }
+
+        }else if(this.readyState == 4){
+            alert( this.status + " - " + this.responseText );
+        }
+    };
+    req.open("POST" , "servidor.php?inserir", true );
+
+    req.setRequestHeader( "Content-type" , "application/x-www-form-urlencoded" );
+
+    nome = document.getElementById("txtNome").value;
+    preco = document.getElementById("txtPreco").value;
+
+    req.send("name=" + nome + "&price=" + preco);
+}
